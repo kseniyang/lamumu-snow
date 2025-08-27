@@ -81,6 +81,9 @@ class SnowBrosGame {
     // Level platforms are now handled by levels.js
     
     updateAngerLevel() {
+        // Only update anger level if game is actively playing
+        if (this.gameState !== 'playing') return;
+        
         const currentTime = Date.now();
         const timeSinceLastUpdate = currentTime - this.lastAngerUpdate;
         
@@ -458,10 +461,15 @@ class SnowBrosGame {
             return;
         }
         
-        // Update anger level system
-        this.updateAngerLevel();
+        // Only update game logic if playing
+        if (this.gameState === 'playing') {
+            // Update anger level system
+            this.updateAngerLevel();
+            
+            this.update(deltaTime);
+        }
         
-        this.update(deltaTime);
+        // Always render (for visual feedback)
         this.render();
         
         requestAnimationFrame(this.gameLoop);
@@ -478,6 +486,19 @@ class SnowBrosGame {
         document.getElementById('gameOverScreen').classList.remove('hidden');
     }
     
+    gameComplete() {
+        this.gameState = 'gameComplete';
+        this.soundManager.playLevelComplete(); // Play victory sound
+        
+        // Show game complete screen
+        document.getElementById('gameCompleteScreen').classList.remove('hidden');
+        
+        // Play final logo animation
+        this.playLogoAnimation();
+        
+        console.log('🎉 GAME COMPLETED! All 5 levels finished!');
+    }
+    
     restart() {
         this.gameState = 'playing';
         this.lives = 3;
@@ -491,34 +512,16 @@ class SnowBrosGame {
         this.gameStartTime = Date.now();
         this.lastAngerUpdate = Date.now();
         
+        // Hide all screens
         document.getElementById('gameOverScreen').classList.add('hidden');
-        document.getElementById('victoryScreen').classList.add('hidden');
+        document.getElementById('gameCompleteScreen').classList.add('hidden');
         this.initializeLevel();
     }
     
-    showVictoryScreen() {
-        this.gameState = 'victory';
-        document.getElementById('victoryScreen').classList.remove('hidden');
-        
-        // Play victory sound if available
-        if (this.soundManager && this.soundManager.playVictory) {
-            this.soundManager.playVictory();
-        }
-        
-        console.log('🎉 GAME COMPLETED! Player conquered all 5 levels!');
-    }
-    
-    showStartScreen() {
-        this.gameState = 'start';
-        document.getElementById('victoryScreen').classList.add('hidden');
-        document.getElementById('gameOverScreen').classList.add('hidden');
-        document.getElementById('startScreen').classList.remove('hidden');
-    }
-    
     nextLevel() {
-        // Check if player completed all 5 levels
+        // Check if game is completed (Level 5 finished)
         if (this.level >= 5) {
-            this.showVictoryScreen();
+            this.gameComplete();
             return;
         }
         
@@ -608,12 +611,6 @@ function startGame() {
 function restartGame() {
     if (game) {
         game.restart();
-    }
-}
-
-function showStartScreen() {
-    if (game) {
-        game.showStartScreen();
     }
 }
 

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lamumu's Snow | Common</title>
+    <title>Snow Bros - Classic Arcade Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <div class="game-header">
             <div class="title-with-logo">
-                <img src="logo.png" alt="Lamumus Logo" height="40" class="game-logo">
+                <img src="logo.png" alt="Snow Bros Logo" height="40" class="game-logo">
                 <h1>Lamumu's Snow ❄️</h1>
             </div>
             <div class="game-info">
@@ -33,27 +33,28 @@
             <button onclick="restartGame()">Play Again</button>
         </div>
         
-        <div id="victoryScreen" class="victory-screen hidden">
+        <div id="gameCompleteScreen" class="game-complete hidden">
             <div class="victory-content">
-                <div class="victory-animation">
-                    <div class="fireworks">🎆</div>
-                    <div class="trophy">🏆</div>
-                    <div class="fireworks">🎇</div>
+                <h2>🎉 CONGRATULATIONS! 🎉</h2>
+                <div class="victory-message">
+                    <h3>✨ GAME COMPLETED! ✨</h3>
+                    <p>You have successfully conquered all <strong>5 levels</strong> of the Snow Bros adventure!</p>
+                    
+                    <div class="achievement-stats">
+                        <div class="stat-item">🏆 <strong>Champion Status:</strong> ACHIEVED</div>
+                        <div class="stat-item">❄️ <strong>Levels Mastered:</strong> 5/5</div>
+                        <div class="stat-item">🐧 <strong>Penguins Defeated:</strong> Countless</div>
+                        <div class="stat-item">⭐ <strong>Difficulty Conquered:</strong> EXTREME</div>
+                    </div>
+                    
+                    <div class="victory-quote">
+                        <p><em>"From the frozen peaks to the final showdown, you've proven yourself as the ultimate Snow Bros master!"</em></p>
+                    </div>
                 </div>
-                <h2 class="victory-title">🎉 CONGRATULATIONS! 🎉</h2>
-                <h3 class="victory-subtitle">You've Conquered All 5 Levels!</h3>
-                <div class="victory-stats">
-                    <p>🎯 <strong>Mission Complete!</strong></p>
-                    <p>❄️ You've mastered the art of snow warfare!</p>
-                    <p>🐧 All penguins have been defeated!</p>
-                    <p>⭐ You are the ultimate Lamumu's Snow champion!</p>
-                </div>
+                
                 <div class="victory-buttons">
                     <button onclick="restartGame()" class="victory-btn primary">🚀 Play Again</button>
-                    <button onclick="showStartScreen()" class="victory-btn secondary">🏠 Main Menu</button>
-                </div>
-                <div class="victory-message">
-                    <p class="thank-you">Thank you for playing Lamumu Snow! ❄️</p>
+                    <button onclick="location.reload()" class="victory-btn secondary">🏠 Main Menu</button>
                 </div>
             </div>
         </div>
