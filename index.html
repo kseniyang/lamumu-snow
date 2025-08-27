@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snow Bros - Classic Arcade Game</title>
+    <title>Lamumu's Snow | Common</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="game-container">
         <div class="game-header">
             <div class="title-with-logo">
-                <img src="logo.png" alt="Snow Bros Logo" height="40" class="game-logo">
+                <img src="logo.png" alt="Lamumus Logo" height="40" class="game-logo">
                 <h1>Lamumu's Snow ❄️</h1>
             </div>
             <div class="game-info">
@@ -31,6 +31,31 @@
             <h2>Game Over!</h2>
             <p>Try to survive longer and reach higher levels!</p>
             <button onclick="restartGame()">Play Again</button>
+        </div>
+        
+        <div id="victoryScreen" class="victory-screen hidden">
+            <div class="victory-content">
+                <div class="victory-animation">
+                    <div class="fireworks">🎆</div>
+                    <div class="trophy">🏆</div>
+                    <div class="fireworks">🎇</div>
+                </div>
+                <h2 class="victory-title">🎉 CONGRATULATIONS! 🎉</h2>
+                <h3 class="victory-subtitle">You've Conquered All 5 Levels!</h3>
+                <div class="victory-stats">
+                    <p>🎯 <strong>Mission Complete!</strong></p>
+                    <p>❄️ You've mastered the art of snow warfare!</p>
+                    <p>🐧 All penguins have been defeated!</p>
+                    <p>⭐ You are the ultimate Lamumu's Snow champion!</p>
+                </div>
+                <div class="victory-buttons">
+                    <button onclick="restartGame()" class="victory-btn primary">🚀 Play Again</button>
+                    <button onclick="showStartScreen()" class="victory-btn secondary">🏠 Main Menu</button>
+                </div>
+                <div class="victory-message">
+                    <p class="thank-you">Thank you for playing Lamumu Snow! ❄️</p>
+                </div>
+            </div>
         </div>
         
         <div id="startScreen" class="start-screen">
@@ -71,7 +96,7 @@
                 
                 <div class="controls-compact">
                     <div class="control-row">
-                        <kbd>A</kbd><kbd>D</kbd> Move • <kbd>W</kbd> Jump • <kbd>SPACE</kbd> Throw/Push
+                        <kbd>A</kbd><kbd>D</kbd> Move  <kbd>W</kbd> Jump • <kbd>SPACE</kbd> Throw/Push
                     </div>
                 </div>
                 

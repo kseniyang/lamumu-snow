@@ -492,10 +492,36 @@ class SnowBrosGame {
         this.lastAngerUpdate = Date.now();
         
         document.getElementById('gameOverScreen').classList.add('hidden');
+        document.getElementById('victoryScreen').classList.add('hidden');
         this.initializeLevel();
     }
     
+    showVictoryScreen() {
+        this.gameState = 'victory';
+        document.getElementById('victoryScreen').classList.remove('hidden');
+        
+        // Play victory sound if available
+        if (this.soundManager && this.soundManager.playVictory) {
+            this.soundManager.playVictory();
+        }
+        
+        console.log('🎉 GAME COMPLETED! Player conquered all 5 levels!');
+    }
+    
+    showStartScreen() {
+        this.gameState = 'start';
+        document.getElementById('victoryScreen').classList.add('hidden');
+        document.getElementById('gameOverScreen').classList.add('hidden');
+        document.getElementById('startScreen').classList.remove('hidden');
+    }
+    
     nextLevel() {
+        // Check if player completed all 5 levels
+        if (this.level >= 5) {
+            this.showVictoryScreen();
+            return;
+        }
+        
         this.level++;
         this.snowballs = [];
         this.particles = [];
@@ -582,6 +608,12 @@ function startGame() {
 function restartGame() {
     if (game) {
         game.restart();
+    }
+}
+
+function showStartScreen() {
+    if (game) {
+        game.showStartScreen();
     }
 }
 

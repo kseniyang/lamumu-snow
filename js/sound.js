@@ -122,6 +122,29 @@ class SoundManager {
         ], 'triangle', 0.3);
     }
     
+    playVictory() {
+        // Epic victory celebration - longer and more triumphant
+        this.createComplexSound([
+            // First phrase
+            { frequency: 523, duration: 0.3, delay: 0 },     // C5
+            { frequency: 659, duration: 0.3, delay: 300 },   // E5
+            { frequency: 784, duration: 0.3, delay: 600 },   // G5
+            { frequency: 1047, duration: 0.5, delay: 900 },  // C6
+            
+            // Second phrase (higher)
+            { frequency: 1175, duration: 0.3, delay: 1500 }, // D6
+            { frequency: 1319, duration: 0.3, delay: 1800 }, // E6
+            { frequency: 1568, duration: 0.3, delay: 2100 }, // G6
+            { frequency: 2093, duration: 0.8, delay: 2400 }, // C7
+            
+            // Final triumphant chord
+            { frequency: 523, duration: 1.0, delay: 3300 },  // C5
+            { frequency: 659, duration: 1.0, delay: 3300 },  // E5
+            { frequency: 784, duration: 1.0, delay: 3300 },  // G5
+            { frequency: 1047, duration: 1.0, delay: 3300 }  // C6
+        ], 'triangle', 0.4);
+    }
+    
     playGameOver() {
         // Dramatic game over sound
         this.createComplexSound([
