@@ -43,7 +43,7 @@ function getLevelPlatforms(levelNum) {
                     { x: 500, y: 450, width: 180, height: 45, type: 'platform' },   // Right
                 ];
                 
-            case 3: // Level 3 - Snow Bros style stepped asymmetric design
+            case 3: // Level 3 - Snow Lamumus style stepped asymmetric design
                 return [
                     { x: 0, y: 560, width: 800, height: 90, type: 'ground' },
                     
@@ -69,7 +69,7 @@ function getLevelPlatforms(levelNum) {
 
                 ];
                 
-            case 4: // Level 4 - Snow Bros style pyramid design
+            case 4: // Level 4 - Snow Lamumus style pyramid design
                 return [
                     { x: 0, y: 560, width: 800, height: 90, type: 'ground' },
                     

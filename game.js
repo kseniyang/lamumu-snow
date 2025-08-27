@@ -1,4 +1,4 @@
-// Snow Bros Game - JavaScript Implementation
+// Snow Lamumus Game - JavaScript Implementation
 class SnowBrosGame {
     constructor() {
         this.canvas = document.getElementById('gameCanvas');
@@ -320,7 +320,7 @@ class SnowBrosGame {
     }
     
     drawBackground() {
-        // Draw checkered background pattern like original Snow Bros
+        // Draw checkered background pattern like original Snow Lamumus
         const levelIndex = ((this.level - 1) % 10) + 1;
         const colors = this.getBackgroundColors(levelIndex);
         
@@ -365,7 +365,7 @@ class SnowBrosGame {
             this.ctx.fillStyle = gradient;
             this.ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
         } else {
-            // Draw platform with Snow Bros style - orange with zigzag edges
+            // Draw platform with Snow Lamumus style - orange with zigzag edges
             this.ctx.fillStyle = '#FF8C00';
             this.ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
             
