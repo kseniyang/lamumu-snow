@@ -14,37 +14,81 @@
                 <h1>Lamumu's Snow ❄️</h1>
             </div>
             <div class="game-info">
-                <div class="score">Score: <span id="score">0</span></div>
+                <div class="anger-level">🔥 Anger: <span id="angerLevel">0%</span></div>
                 <div class="lives">Lives: <span id="lives">3</span></div>
                 <div class="level">Level: <span id="level">1</span></div>
+                <button id="soundToggle" class="sound-btn" onclick="toggleSound()" title="Mute Sound">♪ Volume</button>
             </div>
+            
+
         </div>
         
         <canvas id="gameCanvas" width="800" height="600"></canvas>
         
-        <div class="game-controls">
-            <div class="instructions">
-                <h3>Controls:</h3>
-                <p><strong>A/D or ←/→</strong> - Move Left/Right</p>
-                <p><strong>W or ↑</strong> - Jump</p>
-                <p><strong>SPACE</strong> - Throw snowball / Push frozen enemy</p>
-                <p><strong>R</strong> - Restart game</p>
-            </div>
-        </div>
+
         
         <div id="gameOverScreen" class="game-over hidden">
             <h2>Game Over!</h2>
-            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Try to survive longer and reach higher levels!</p>
             <button onclick="restartGame()">Play Again</button>
         </div>
         
         <div id="startScreen" class="start-screen">
-            <h2>🐄 Cow Bros ❄️</h2>
-            <p>Play as a cute <b>Lamumu</b> character and defeat enemies by throwing snowballs!</p>
-            <button onclick="startGame()">Start Game</button>
+            <h2>🎮 Lamu Snow Ball</h2>
+            <p class="game-description">Defeat penguins by freezing them with snowballs!</p>
+            
+            <div class="tutorial-compact">
+                <div class="tutorial-grid">
+                    <div class="tutorial-item">
+                        <span class="tutorial-icon">❄️</span>
+                        <div class="tutorial-text">
+                            <strong>Freeze</strong><br>
+                            <small>Throw snowballs (3 hits = frozen)</small>
+                        </div>
+                    </div>
+                    <div class="tutorial-item">
+                        <span class="tutorial-icon">👊</span>
+                        <div class="tutorial-text">
+                            <strong>Push</strong><br>
+                            <small>Get close + SPACE to push snowballs</small>
+                        </div>
+                    </div>
+                    <div class="tutorial-item">
+                        <span class="tutorial-icon">🏆</span>
+                        <div class="tutorial-text">
+                            <strong>Win</strong><br>
+                            <small>Clear all enemies to advance</small>
+                        </div>
+                    </div>
+                    <div class="tutorial-item">
+                        <span class="tutorial-icon">⚠️</span>
+                        <div class="tutorial-text">
+                            <strong>Avoid</strong><br>
+                            <small>Don't touch active enemies!</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="controls-compact">
+                    <div class="control-row">
+                        <kbd>A</kbd><kbd>D</kbd> Move • <kbd>W</kbd> Jump • <kbd>SPACE</kbd> Throw/Push
+                    </div>
+                </div>
+                
+                <p class="difficulty-note">💀 Each level gets 10% harder!</p>
+            </div>
+            
+            <button onclick="startGame()" class="start-btn">🚀 Start Game!</button>
         </div>
     </div>
     
+    <!-- Load modular game files -->
+    <script src="js/particles.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/snowball.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/player.js"></script>
     <script src="game.js"></script>
 </body>
 </html>
